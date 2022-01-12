@@ -8,7 +8,8 @@ export const signUpRoute = {
     handler: async (req, res) => {
         const {email, password} = req.body;
         const db = getDbConnection('react-auth-db');
-        const user = await db.collection.findOne({email});
+        console.log(db,'dddddddddddddd'); //fixme
+        const user = await db.collection('users').findOne({email});
         if (user) {
             res.sendStatus(409);
         }

@@ -2,13 +2,15 @@ import {getDbConnection} from "../db";
 import bcrypt from "bcrypt";
 import jwt from 'jsonwebtoken';
 
+
+
+
 export const signUpRoute = {
     path: '/api/signup',
     method: 'post',
     handler: async (req, res) => {
         const {email, password} = req.body;
         const db = getDbConnection('react-auth-db');
-        console.log(db,'dddddddddddddd'); //fixme
         const user = await db.collection('users').findOne({email});
         if (user) {
             res.sendStatus(409);

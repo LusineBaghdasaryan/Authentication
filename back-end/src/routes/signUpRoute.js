@@ -2,9 +2,6 @@ import {getDbConnection} from "../db";
 import bcrypt from "bcrypt";
 import jwt from 'jsonwebtoken';
 
-
-
-
 export const signUpRoute = {
     path: '/api/signup',
     method: 'post',
